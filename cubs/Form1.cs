@@ -96,11 +96,11 @@ namespace cubs
                 string WhoWin = "";
                 if (VertScore > UserScore)
                 {
-                    WhoWin = "Комп победил со счётом" + VertScore;
+                    WhoWin = "Комп победил со счётом " + VertScore;
                 }
                 else if (VertScore < UserScore)
                 {
-                    WhoWin = "Игрок победил со счётом" + UserScore;
+                    WhoWin = "Игрок победил со счётом " + UserScore;
                 }
                 else
                 {
