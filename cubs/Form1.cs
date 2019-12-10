@@ -93,8 +93,21 @@ namespace cubs
             }
             else
             {
-             DialogResult RES = MessageBox.Show("Попытки закончились\n" +
-                    "Хотите ли вы начать новую игру", "Game over",
+                string WhoWin = "";
+                if (VertScore > UserScore)
+                {
+                    WhoWin = "Комп победил со счётом" + VertScore;
+                }
+                else if (VertScore < UserScore)
+                {
+                    WhoWin = "Игрок победил со счётом" + UserScore;
+                }
+                else
+                {
+
+                }
+                DialogResult RES = MessageBox.Show("Попытки закончились\n" +
+                    "Хотите ли вы начать новую игру\n" + WhoWin, "Game over",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (RES == DialogResult.Yes)
                 {
