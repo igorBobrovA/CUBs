@@ -90,29 +90,36 @@ namespace cubs
                 VertScore += VERTcub;
                 label7.Text = "Комп: " + VertScore;
                 label4.Text = "осталось попыток: " + HowManyPop;
+                if (HowManyPop == 0)
+                {
+                    string WhoWin = "";
+                    if (VertScore < UserScore)
+                    {
+                        WhoWin = "Игрок победил";
+                    }
+                    else if (VertScore > UserScore)
+                    {
+                        WhoWin = "Комп победил";
+                    }
+                    else
+                    {
+                        WhoWin = "Ничья";
+                    }
+                    DialogResult RES = MessageBox.Show(WhoWin + "\nУ игрока счёт " + UserScore +
+                        "\nУ компа " + VertScore, "Game over",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
             else
             {
-                string WhoWin = "";
-                if (VertScore > UserScore)
-                {
-                    WhoWin = "Комп победил со счётом " + VertScore;
-                }
-                else if (VertScore < UserScore)
-                {
-                    WhoWin = "Игрок победил со счётом " + UserScore;
-                }
-                else
-                {
-
-                }
                 DialogResult RES = MessageBox.Show("Попытки закончились\n" +
-                    "Хотите ли вы начать новую игру\n" + WhoWin, "Game over",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                       "Хотите ли вы начать новую игру", "Game over",
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (RES == DialogResult.Yes)
                 {
                     button1.PerformClick();
-                }   
+                }
             }
         }  
     }
